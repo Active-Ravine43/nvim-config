@@ -1,0 +1,2 @@
+# Lazy.nvim plugin state cache (not actual plugins)
+# Actual plugins are stored in ~/.local/share/nvim/lazy/ — outside this repo
