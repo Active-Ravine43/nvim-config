@@ -32,4 +32,8 @@ require("lazy").setup({
 	require("plugins.lualine"),
 	require("plugins.conform"),
 	require("plugins.project"),
+	require("plugins.gitsigns"),
+	require("plugins.comment"),
+	require("plugins.surround"),
+	require("plugins.ts-context-commentstring"),
 })
