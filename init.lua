@@ -36,4 +36,6 @@ require("lazy").setup({
 	require("plugins.comment"),
 	require("plugins.surround"),
 	require("plugins.ts-context-commentstring"),
+	require("plugins.lint"),
+	require("plugins.trouble"),
 })
