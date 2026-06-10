@@ -40,4 +40,5 @@ require("lazy").setup({
 	require("plugins.trouble"),
 	require("plugins.alpha"),
 	require("plugins.neogit"),
+	require("plugins.which-key"),
 })
