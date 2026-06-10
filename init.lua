@@ -38,4 +38,6 @@ require("lazy").setup({
 	require("plugins.ts-context-commentstring"),
 	require("plugins.lint"),
 	require("plugins.trouble"),
+	require("plugins.alpha"),
+	require("plugins.neogit"),
 })
