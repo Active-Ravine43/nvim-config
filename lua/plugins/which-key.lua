@@ -1,29 +1,45 @@
 -- ~/.config/nvim/lua/plugins/which-key.lua
--- Shows available keymaps as you type a prefix (like <leader>, g, y, etc.)
+-- Explicit cheat sheet — press <leader>? to see all keymaps
 
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function()
-        require("which-key").setup({})
-
-        -- Register named groups so related keys show up together
-        local wk = require("which-key")
-        wk.add({
-            -- Telescope
-            { "<leader>f", group = "Find" },
-            -- Git
-            { "<leader>g", group = "Git" },
-            { "<leader>h", group = "Hunk" },
-            -- LSP
-            { "<leader>r", group = "Rename" },
-            { "<leader>c", group = "Code" },
-            -- Diagnostics
-            { "<leader>x", group = "Diagnostics" },
-
-            -- g-prefix group (comment, etc.)
-            { "gc", group = "Comment" },
-            { "gb", group = "Block comment" },
-        })
-    end,
+    keys = {
+        { "<leader>k", function() require("which-key").show({ keys = "<leader>" }) end, desc = "Cheat sheet (keymaps)" },
+    },
+    opts = {
+        preset = "modern",
+        spec = {
+            { "<leader>f",  group = "Find" },
+            { "<leader>ff", desc = "Find files" },
+            { "<leader>fg", desc = "Live grep" },
+            { "<leader>fb", desc = "Buffers" },
+            { "<leader>fp", desc = "Projects" },
+            { "<leader>x",  group = "Diagnostics" },
+            { "<leader>xx", desc = "Toggle diagnostics" },
+            { "<leader>xX", desc = "Buffer diagnostics" },
+            { "<leader>g",  group = "Git" },
+            { "<leader>gg", desc = "Status (Neogit)" },
+            { "<leader>h",  group = "Hunk" },
+            { "<leader>hs", desc = "Stage hunk" },
+            { "<leader>hr", desc = "Reset hunk" },
+            { "<leader>hp", desc = "Preview hunk" },
+            { "<leader>hb", desc = "Blame line" },
+            { "<leader>r",  group = "Refactor" },
+            { "<leader>rn", desc = "Rename" },
+            { "<leader>c",  group = "Code" },
+            { "<leader>ca", desc = "Code action" },
+            { "<leader>s",  group = "Search" },
+            { "<leader>sj", desc = "Jump to position" },
+            { "<leader>st", desc = "Jump treesitter node" },
+            { "<leader>e",  desc = "Toggle file tree" },
+            { "<leader>k",  desc = "Cheat sheet" },
+            { "gc",  group = "Comment" },
+            { "gb",  group = "Block comment" },
+            { "[d",  desc = "Prev diagnostic" },
+            { "]d",  desc = "Next diagnostic" },
+            { "[c",  desc = "Prev hunk" },
+            { "]c",  desc = "Next hunk" },
+        },
+    },
 }

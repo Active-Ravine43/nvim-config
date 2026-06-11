@@ -41,4 +41,10 @@ require("lazy").setup({
 	require("plugins.alpha"),
 	require("plugins.neogit"),
 	require("plugins.which-key"),
+	require("plugins.autopairs"),
+	require("plugins.indent-blankline"),
+	require("plugins.todo-comments"),
+	require("plugins.toggleterm"),
+	require("plugins.auto-session"),
+	require("plugins.flash"),
 })

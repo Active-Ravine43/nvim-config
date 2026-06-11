@@ -35,12 +35,12 @@ return {
             return "ruff" -- fallback: whatever is on PATH
         end
 
-        -- Run linting on these events
+        -- Run linting on these events (errors suppressed so missing linters don't interrupt)
         local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
             group = augroup,
             callback = function()
-                lint.try_lint()
+                pcall(lint.try_lint)
             end,
         })
     end,
