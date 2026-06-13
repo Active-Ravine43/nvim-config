@@ -1,13 +1,11 @@
 -- ~/.config/nvim/lua/plugins/colorscheme.lua
 
 return {
-	"catppuccin/nvim",
-	name = "catppuccin",
+	"aparaatti/redish.vim",
+	name = "redish",
 	priority = 1000,
 	config = function()
-		require("catppuccin").setup({
-			transparent_background = true,
-		})
-		vim.cmd("colorscheme catppuccin-mocha")
+		vim.g.redish_transparent = 1
+		vim.cmd("colorscheme redish")
 	end,
 }
