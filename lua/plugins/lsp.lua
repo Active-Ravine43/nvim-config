@@ -36,7 +36,18 @@ return {
 			-- Enable LSP servers
 			vim.lsp.config("pyright", {})
 			vim.lsp.config("ts_ls", {})
-			vim.lsp.config("lua_ls", {})
+			vim.lsp.config("lua_ls", {
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim" } },
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+						},
+						telemetry = { enable = false },
+					},
+				},
+			})
 			vim.lsp.enable({ "pyright", "ts_ls", "lua_ls" })
 		end,
 	},

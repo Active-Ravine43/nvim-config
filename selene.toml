@@ -1,0 +1,7 @@
+# selene.toml — declare Neovim's built-in globals so selene doesn't flag them
+
+std = "lua51+lua52+luajit"
+
+[config]
+globals = ["vim", "require", "pcall"]
+
