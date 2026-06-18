@@ -47,4 +47,12 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.auto-session"),
 	require("plugins.flash"),
+	require("plugins.dap"),
+	require("plugins.render-markdown"),
+	require("plugins.illuminate"),
+	require("plugins.overseer"),
+	require("plugins.spectre"),
+	require("plugins.mini-files"),
+	require("plugins.refactoring"),
+	require("plugins.ninety-nine"),
 })

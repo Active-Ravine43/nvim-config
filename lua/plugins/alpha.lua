@@ -36,7 +36,7 @@ return {
         dashboard.section.header.opts.hl = "DashboardHeader"
         dashboard.section.footer.opts.hl = "DashboardFooter"
 
-        -- Define the custom red highlight groups
+        -- Custom reds tuned to the redish colorscheme
         vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#610303" })
         vim.api.nvim_set_hl(0, "DashboardFooter", { fg = "#930101" })
 

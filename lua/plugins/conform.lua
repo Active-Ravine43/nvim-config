@@ -5,10 +5,18 @@ return {
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
-				python = { "black" },
-				typescript = { "prettier" },
-				javascript = { "prettier" },
 				lua = { "stylua" },
+				python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				json = { "prettier" },
+				yaml = { "yamlfmt" },
+				markdown = { "prettier" },
+				bash = { "shfmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

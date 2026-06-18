@@ -19,6 +19,14 @@ return {
 				automatic_installation = true,
 			})
 
+			-- Diagnostic display
+			vim.diagnostic.config({
+				severity_sort = true,
+				float = { border = "rounded", source = "if_many" },
+				virtual_text = { source = "if_many", spacing = 2 },
+				underline = { severity = vim.diagnostic.severity.ERROR },
+			})
+
 			-- LSP keymaps — fired every time a server attaches to a buffer
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
@@ -30,6 +38,22 @@ return {
 					map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 					map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
 					map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+
+					-- Document highlights (auto-highlight references under cursor)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+						local hl_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = args.buf,
+							group = hl_augroup,
+							callback = vim.lsp.buf.document_highlight,
+						})
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = args.buf,
+							group = hl_augroup,
+							callback = vim.lsp.buf.clear_references,
+						})
+					end
 				end,
 			})
 
@@ -63,6 +87,9 @@ return {
 				appearance = {
 					use_nvim_hl_groups = true,
 				},
+				accept = {
+					auto_brackets = { enabled = false }, -- let nvim-autopairs own bracket handling
+				},
 				sources = {
 					default = { "lsp", "path", "buffer", "snippets" },
 				},
@@ -71,4 +98,3 @@ return {
 		end,
 	},
 }
-

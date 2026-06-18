@@ -12,7 +12,9 @@ return {
 		lint.linters_by_ft = {
 			python = { "ruff" },
 			typescript = { "eslint" },
+			typescriptreact = { "eslint" },
 			javascript = { "eslint" },
+			javascriptreact = { "eslint" },
 			lua = { "selene" },
 		}
 
