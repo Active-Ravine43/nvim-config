@@ -2,13 +2,20 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "main", -- stable old API; new "main" branch requires tree-sitter-cli >= 0.26.1
+	branch = "main", -- new API; requires tree-sitter-cli >= 0.26.1
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = { "lua", "python", "typescript", "javascript" },
-			highlight = { enable = true },
-			indent = { enable = true },
+			modules = {
+				---@diagnostic disable-next-line: missing-fields
+				highlight = { enable = true },
+				---@diagnostic disable-next-line: missing-fields
+				indent = { enable = true },
+			},
+			sync_install = false,
+			auto_install = true,
+			ignore_install = {},
 		})
 	end,
 }
