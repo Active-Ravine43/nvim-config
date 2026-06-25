@@ -6,7 +6,7 @@ return {
     version = "*",
     cmd = { "ToggleTerm", "TermExec" },
     keys = {
-        { "<C-\\>", "<cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
+        { "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle terminal" },
         {
             "<leader>gl",
             function()
@@ -20,7 +20,7 @@ return {
     },
     config = function()
         require("toggleterm").setup({
-            open_mapping = [[<C-\>]],
+            open_mapping = [[<leader>tt]],
             direction = "float",
             float_opts = {
                 border = "curved",

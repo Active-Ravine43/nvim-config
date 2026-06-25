@@ -74,7 +74,7 @@ return {
 			-- Toggles
 			{ "<leader>e",  desc = "Toggle file tree" },
 			{ "<leader>k",  desc = "Cheat sheet" },
-			{ "<C-\\>",     desc = "Toggle terminal" },
+			{ "<leader>tt", desc = "Toggle terminal" },
 
 			-- Comment
 			{ "gc",  group = "Comment" },
