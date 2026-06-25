@@ -41,6 +41,18 @@ return {
 			return nil -- linter not available; nvim-lint will skip silently
 		end
 
+		-- selene is a Rust binary — check ~/.cargo/bin first, then PATH
+		lint.linters.selene.cmd = function()
+			local cargo_selene = vim.fn.expand("~/.cargo/bin/selene")
+			if vim.uv.fs_stat(cargo_selene) then
+				return cargo_selene
+			end
+			if vim.fn.executable("selene") == 1 then
+				return "selene"
+			end
+			return nil
+		end
+
 		-- Run linting on these events (errors suppressed so missing linters don't interrupt)
 		local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
