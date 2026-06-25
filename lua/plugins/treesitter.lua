@@ -2,7 +2,7 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "master", -- stable branch, compatible with Neovim v0.12 built-in queries
+	branch = "master",
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
